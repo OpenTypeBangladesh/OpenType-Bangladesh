@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-bangla: 'Noto Sans Bengali', 'Hind Siliguri', sans-serif;
+    --brand-green: #006a4e;
+    --brand-red: #f42a41;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-stone-800 antialiased;
+    font-family: var(--font-bangla);
+    line-height: 1.6;
+  }
+
+  body.a11y-underline * {
+    text-decoration: underline !important;
+  }
+
+  body.a11y-large-text {
+    font-size: 1.125rem;
+  }
+
+  body.a11y-dyslexia {
+    letter-spacing: 0.04em;
+    word-spacing: 0.16em;
+  }
+
+  body.a11y-dyslexia p,
+  body.a11y-dyslexia h1,
+  body.a11y-dyslexia h2,
+  body.a11y-dyslexia h3 {
+    line-height: 2;
+  }
+
+  body.a11y-high-contrast {
+    background: #fff;
+  }
+
+  /* keyboard focus visibility for motor-impaired users */
+  :focus-visible {
+    outline: 3px solid var(--brand-red) !important;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand-red-600 px-6 py-3 font-bold text-white shadow-lg shadow-brand-red-600/25 transition hover:-translate-y-0.5 hover:bg-brand-red-700 hover:shadow-xl hover:shadow-brand-red-600/30 focus-visible:outline-none active:translate-y-0 disabled:opacity-50 disabled:hover:translate-y-0;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-brand-green-200 bg-white px-6 py-3 font-bold text-brand-green-700 transition hover:-translate-y-0.5 hover:border-brand-green-600 hover:bg-brand-green-50 focus-visible:outline-none active:translate-y-0;
+  }
+  .btn-ghost-light {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/40 bg-white/10 px-6 py-3 font-bold text-white backdrop-blur transition hover:-translate-y-0.5 hover:border-white hover:bg-white/20;
+  }
+  .card {
+    @apply rounded-3xl border border-stone-200/80 bg-white shadow-sm;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold;
+  }
+  .section-label {
+    @apply text-sm font-extrabold uppercase tracking-widest text-brand-red-600;
+  }
+}
